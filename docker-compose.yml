@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    command: ./main
+
+  tests:
+    build: .
+    command: ./test_main

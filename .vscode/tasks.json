@@ -1,0 +1,60 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "label": "cppbuild",
+            "type": "shell",
+            "command": "/bin/g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/*.cpp",
+                "-o",
+                "main"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "compiler: /bin/g++"
+        },
+        {
+            "label": "build tests",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "-g",
+                "-isystem",
+                "tests/googletest/googletest/include",
+                "-pthread",
+                "add.cpp",
+                "tests/test_main.cpp",
+                "-Ltests/googletest/build/lib",
+                "-lgtest",
+                "-lgtest_main",
+                "-o",
+                "test_main"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "run tests",
+            "type": "shell",
+            "command": "./test_main",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        }
+    ]
+}

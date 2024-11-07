@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-world-pod
+spec:
+  containers:
+  - name: maaa
+    image: localhost/maaa
+    ports:
+    - containerPort: 8080
+  - name: mycontainer
+    image: localhost/dockimage
+    ports:
+    - containerPort: 8081
